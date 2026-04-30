@@ -1,29 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Biodata</title>
+    <title>Website Portofolio Karso</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container-navbar">
-            <div class="brand-navbar">My Website</div>
-            <div class="navbar-links">
-                <a href="#home">Home</a>
-                <a href="#biodata">Biodata</a>
-                <a href="#portofolio">Portofolio</a>
+
+    <div class="main-container">
+        <!-- Header -->
+        <nav>
+            <div class="logo"><strong>My Website</strong></div>
+            <ul class="nav-links">
+                <li><a href="#">Header</a></li>
+                <li><a href="#">Biodata</a></li>
+                <li><a href="#">Portofolio</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Selamat Datang di Website Saya</h1>
+                <p>Ini adalah contoh header dengan dua kolom. Kolom kiri berisi teks seperti ini. Saya adalah seorang profesional yang berdedikasi tinggi.</p>
+                <button class="btn-primary">Pelajari Lebih Lanjut</button>
             </div>
-        </div>
-    </nav>
-    <!-- Tutup Navbar -->
-     <!-- Hero -->
-      <section>
-        <div>
+            <div class="hero-image">
+                <img src="gambar/karso.jpg" alt="Foto Profil">
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section class="about">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Saya adalah Seorang Profesional Administrasi</p>
             
-        </div>
-      </section>
-     <!-- Tutup Hero -->
+            <div class="biodata-grid">
+                <div class="info-box"><span class="info-label">Full Name:</span> Karso</div>
+                <div class="info-box"><span class="info-label">Education:</span> Manajemen, Universitas Terbuka</div>
+                <div class="info-box"><span class="info-label">Pekerjaan:</span> Staf Administrasi SMKN 1 Pemahan</div>
+                <div class="info-box"><span class="info-label">Contact:</span> karso@gmail.com</div>
+                <div class="info-box"><span class="info-label">Hobi:</span> Web Development & Desain</div>
+                <div class="info-box"><span class="info-label">Alamat:</span> Pemahan, Ketapang</div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio">
+            <h2 class="section-title">Portofolio</h2>
+            
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=400" alt="Web Project">
+                    <div class="portfolio-info">
+                        <h4>Proyek 1</h4>
+                        <p>Aplikasi PPDB Online berbasis Laravel</p>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=400" alt="Branding Project">
+                    <div class="portfolio-info">
+                        <h4>Proyek 2</h4>
+                        <p>Branding & Desain Logo Emerex Coffee</p>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=400" alt="Network Project">
+                    <div class="portfolio-info">
+                        <h4>Proyek 3</h4>
+                        <p>Manajemen Jaringan MikroTik & FTTH</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2026 Karso. All rights reserved.
+        </footer>
+    </div>
+
 </body>
 </html>
