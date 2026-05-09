@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KarsoProfile - Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-success" href="#home">KarsoProfile</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonial">Testimonial</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button class="btn btn-outline-success rounded-pill px-4" type="button">
+              Download CV
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="py-5 mt-4">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h6 class="fw-light text-secondary">Hi I am</h6>
+            <h5 class="fs-3">Karso Dinata</h5>
+            <h1 class="fw-bold fs-1 mb-4">Developer & <span class="text-success">UI/UX Designer</span></h1>
+            <p class="text-muted mb-4 lh-lg">
+              Saya Adalah seorang tenaga Administrasi SMK Negeri 1 Pemahan yang
+              sudah bekerja lebih dari 10 Tahun dan juga Operator data Pendidikan
+              pada Jenjang TK-MTs-SMK.
+            </p>
+            <!-- Diperbaiki: Menambahkan tag penutup </button> yang hilang -->
+            <button class="btn btn-success rounded-pill px-5 py-2 fw-medium fs-6 shadow-sm" type="button">
+              Hire Me
+            </button>
+          </div>
+          <div class="col-md-6 text-center">
+            <!-- Diperbaiki: Menggunakan placeholder gambar agar bisa ditampilkan -->
+            <img
+              src="../pertemuan-1/gambar/karso.png"
+              alt="Foto Karso"
+              class="img-fluid hero-img"
+              style="max-width: 80%;"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center section-title">About Me & Skills</h2>
+        <div class="row align-items-center mt-5">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h3 class="fw-bold mb-3">Lebih dari 10 Tahun Pengalaman</h3>
+            <p class="text-muted lh-lg">
+              Selain menjadi tenaga administrasi dan operator data pendidikan, saya terus mengasah kemampuan di bidang teknologi informasi. Saya memiliki passion dalam merancang antarmuka pengguna yang intuitif (UI/UX) dan mengembangkan website yang fungsional. Berikut adalah tingkat keahlian saya di berbagai bidang:
+            </p>
+          </div>
+          <div class="col-md-6">
+            <!-- Progress Bar 1 -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="fw-medium">Ms Office</span>
+                <span class="fw-bold text-success">80%</span>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            
+            <!-- Progress Bar 2 -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="fw-medium">UI/UX Design</span>
+                <span class="fw-bold text-success">50%</span>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <!-- Progress Bar 3 -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="fw-medium">Web Developer</span>
+                <span class="fw-bold text-success">70%</span>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-5">
+      <div class="container">
+        <h2 class="text-center section-title">My Services</h2>
+        <p class="text-center text-muted mb-5">Layanan profesional yang saya tawarkan untuk membantu kebutuhan digital Anda.</p>
+        
+        <div class="row g-4">
+          <!-- Service 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card service-card text-center">
+              <img src="https://placehold.co/600x400/FF6B6B/ffffff?text=UI/UX+Design" class="card-img-top service-img" alt="UI/UX Design">
+              <div class="card-body py-4">
+                <h5 class="card-title fw-bold">UI/UX Design</h5>
+                <p class="card-text text-muted fs-6">Merancang antarmuka pengguna yang menarik dan pengalaman pengguna yang nyaman.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Service 2 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card service-card text-center">
+              <img src="https://placehold.co/600x400/4ECDC4/ffffff?text=Web+Design" class="card-img-top service-img" alt="Web Design">
+              <div class="card-body py-4">
+                <h5 class="card-title fw-bold">Web Design</h5>
+                <p class="card-text text-muted fs-6">Membuat desain website responsif yang terlihat indah di berbagai perangkat.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card service-card text-center">
+              <img src="https://placehold.co/600x400/45B7D1/ffffff?text=Web+Developer" class="card-img-top service-img" alt="Web Developer">
+              <div class="card-body py-4">
+                <h5 class="card-title fw-bold">Web Developer</h5>
+                <p class="card-text text-muted fs-6">Membangun website dinamis dengan performa tinggi menggunakan teknologi modern.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card service-card text-center">
+              <img src="https://placehold.co/600x400/FDCB6E/ffffff?text=Network+Eng" class="card-img-top service-img" alt="Network Engineering">
+              <div class="card-body py-4">
+                <h5 class="card-title fw-bold">Network Engineering</h5>
+                <p class="card-text text-muted fs-6">Instalasi, konfigurasi, dan pemeliharaan infrastruktur jaringan komputer sekolah/kantor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-dark text-white">
+      <div class="container">
+        <h2 class="text-center section-title text-white">Service Showcase</h2>
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-10">
+            <div id="serviceCarousel" class="carousel slide carousel-fade shadow-lg" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              </div>
+              <div class="carousel-inner rounded-3">
+                <!-- Carousel Item 1 -->
+                <div class="carousel-item active" data-bs-interval="3000">
+                  <img src="https://placehold.co/1200x600/FF6B6B/ffffff?text=UI/UX+Design+Project" class="d-block w-100 carousel-img" alt="UI UX Design">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h3 class="fw-bold">UI/UX Design</h3>
+                    <p>Fokus pada wireframing, prototyping, dan kepuasan pengguna akhir.</p>
+                  </div>
+                </div>
+                <!-- Carousel Item 2 -->
+                <div class="carousel-item" data-bs-interval="3000">
+                  <img src="https://placehold.co/1200x600/4ECDC4/ffffff?text=Web+Design+Project" class="d-block w-100 carousel-img" alt="Web Design">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h3 class="fw-bold">Web Design</h3>
+                    <p>Menciptakan visual yang memanjakan mata dengan standar modern.</p>
+                  </div>
+                </div>
+                <!-- Carousel Item 3 -->
+                <div class="carousel-item" data-bs-interval="3000">
+                  <img src="https://placehold.co/1200x600/45B7D1/ffffff?text=Web+Development+Project" class="d-block w-100 carousel-img" alt="Web Developer">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h3 class="fw-bold">Web Developer</h3>
+                    <p>Konversi desain menjadi kode interaktif dengan HTML, CSS, JS, dan backend framework.</p>
+                  </div>
+                </div>
+                <!-- Carousel Item 4 -->
+                <div class="carousel-item" data-bs-interval="3000">
+                  <img src="https://placehold.co/1200x600/FDCB6E/ffffff?text=Network+Project" class="d-block w-100 carousel-img" alt="Network Engineering">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h3 class="fw-bold">Network Engineering</h3>
+                    <p>Pengelolaan server, mikrotik, dan jaringan LAN yang stabil.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#serviceCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#serviceCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonial" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center section-title">Testimonials</h2>
+        <div class="row g-4 mt-4">
+          <!-- Testimonial 1 -->
+          <div class="col-md-4">
+            <div class="testimonial-card text-center h-100 shadow-sm">
+              <p class="fst-italic text-muted mb-4">"Pak Karso sangat teliti dalam mengelola data sekolah kami. Pekerjaannya cepat dan akurat. Sistem jaringan sekolah kini jauh lebih stabil."</p>
+              <img src="https://placehold.co/80x80/6c757d/ffffff?text=K" alt="Kepala Sekolah" class="rounded-circle mb-3 border border-3 border-success">
+              <h6 class="fw-bold mb-0">Bpk. Kepala Sekolah</h6>
+              <small class="text-success">SMKN 1 Pemahan</small>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="col-md-4">
+            <div class="testimonial-card text-center h-100 shadow-sm">
+              <p class="fst-italic text-muted mb-4">"Desain website yang dibuat sangat user-friendly. Mudah digunakan baik oleh guru maupun siswa. Sangat merekomendasikan jasa beliau!"</p>
+              <img src="https://placehold.co/80x80/6c757d/ffffff?text=G" alt="Guru" class="rounded-circle mb-3 border border-3 border-success">
+              <h6 class="fw-bold mb-0">Rekan Guru</h6>
+              <small class="text-success">Rekan Kerja</small>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="col-md-4">
+            <div class="testimonial-card text-center h-100 shadow-sm">
+              <p class="fst-italic text-muted mb-4">"Troubleshooting jaringan sangat cepat. Kini akses internet di laboratorium komputer lancar tanpa kendala."</p>
+              <img src="https://placehold.co/80x80/6c757d/ffffff?text=O" alt="Operator" class="rounded-circle mb-3 border border-3 border-success">
+              <h6 class="fw-bold mb-0">Operator Sekolah</h6>
+              <small class="text-success">Klien Jaringan</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container text-center text-md-start">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-success">KarsoProfile</h5>
+            <p>Berdedikasi untuk memberikan layanan administrasi, pengembangan web, desain, dan jaringan yang terbaik dan terpercaya.</p>
+          </div>
+          
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-success">Links</h5>
+            <p><a href="#home" class="text-white text-decoration-none">Home</a></p>
+            <p><a href="#about" class="text-white text-decoration-none">About Me</a></p>
+            <p><a href="#services" class="text-white text-decoration-none">Services</a></p>
+            <p><a href="#testimonial" class="text-white text-decoration-none">Testimonial</a></p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-success">Contact</h5>
+            <p><i class="fas fa-home mr-3"></i> Pemahan, Kalimantan Barat, ID</p>
+            <p><i class="fas fa-envelope mr-3"></i> karso904@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> +62 821 5751 4469</p>
+          </div>
+        </div>
+        
+        <hr class="mb-4">
+        
+        <div class="row align-items-center">
+          <div class="col-md-12 text-center">
+            <p class="mb-0">
+              © 2026 Copyright All Rights Reserved by
+              <strong class="text-success">Karso Dinata</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
