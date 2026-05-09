@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk</title>
+    <!-- Menggunakan Bootstrap 5 dari CDN untuk styling cepat -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menambahkan Bootstrap Icons untuk icon notifikasi dll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">EK Printing</a>
+            
+            <!-- Tombol toggler untuk tampilan mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu di sebelah kanan -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <!-- Notifikasi -->
+                    <li class="nav-item me-4 mb-2 mb-lg-0">
+                        <a class="nav-link text-white position-relative" href="#" title="Notifikasi">
+                            <i class="bi bi-bell-fill fs-5"></i>
+                            <span class="position-absolute top-25 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">Ada notifikasi baru</span>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Tombol Login dan Daftar -->
+                    <li class="nav-item me-2 mb-2 mb-lg-0">
+                        <a href="#" class="btn btn-outline-light px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">Masuk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-light text-primary fw-bold px-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#registerModal">Daftar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        <div class="row">
+            <!-- Sidebar / Bagian Filter -->
+            <div class="col-lg-3 mb-4">
+                <div class="card shadow-sm sticky-top" style="top: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 fw-bold text-primary"><i class="bi bi-funnel-fill me-2"></i>Filter & Cari</h5>
+                        <hr>
+                        
+                        <!-- Filter Pencarian Nama -->
+                        <div class="mb-3">
+                            <label for="searchInput" class="form-label text-muted small fw-bold">PENCARIAN</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                                <input type="text" class="form-control border-start-0" id="searchInput" placeholder="Nama produk...">
+                            </div>
+                        </div>
+
+                        <!-- Filter Kategori -->
+                        <div class="mb-3">
+                            <label for="categoryFilter" class="form-label text-muted small fw-bold">KATEGORI</label>
+                            <select class="form-select" id="categoryFilter">
+                                <option value="semua">Semua Kategori</option>
+                                <option value="Laptop">Laptop</option>
+                                <option value="Smartphone">Smartphone</option>
+                                <option value="Aksesoris">Aksesoris</option>
+                                <option value="Audio">Audio</option>
+                                <option value="Kamera">Kamera</option>
+                            </select>
+                        </div>
+
+                        <!-- Filter Harga -->
+                        <div class="mb-3">
+                            <label class="form-label text-muted small fw-bold">RENTANG HARGA</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text bg-white border-end-0">Rp</span>
+                                <input type="number" class="form-control border-start-0" id="minPrice" placeholder="Minimal">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0">Rp</span>
+                                <input type="number" class="form-control border-start-0" id="maxPrice" placeholder="Maksimal">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary w-100 mt-2 fw-bold" onclick="applyFilters()">Terapkan Filter</button>
+                        <button class="btn btn-outline-secondary w-100 mt-2" onclick="resetFilters()">Reset Filter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konten Produk -->
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="mb-0 fw-bold">Daftar Produk</h4>
+                    <span id="productCount" class="text-muted bg-white px-3 py-1 rounded shadow-sm border">Menampilkan 0 produk</span>
+                </div>
+                
+                <!-- Container untuk menampilkan produk -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="productContainer">
+                    <!-- Data produk akan dirender di sini oleh JavaScript -->
+                </div>
+                
+                <!-- Pesan jika produk tidak ditemukan -->
+                <div id="noProductsMessage" class="alert alert-warning mt-3 text-center d-none shadow-sm" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2 fs-5"></i>
+                    Maaf, tidak ada produk yang cocok dengan filter pencarian Anda.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detail Produk -->
+    <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="productDetailModalLabel">Detail Produk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row">
+                        <!-- Bagian Gambar -->
+                        <div class="col-md-5 mb-3 mb-md-0 text-center">
+                            <img src="" id="modalImage" class="img-fluid rounded shadow-sm w-100" style="object-fit: cover;" alt="Gambar Produk">
+                        </div>
+                        <!-- Bagian Info -->
+                        <div class="col-md-7">
+                            <span class="badge bg-secondary mb-2 fs-6 px-3 py-2" id="modalCategory">Kategori</span>
+                            <h3 id="modalName" class="fw-bold text-dark mt-2">Nama Produk</h3>
+                            <h2 id="modalPrice" class="text-success fw-bold mb-4 mt-2">Rp0</h2>
+                            
+                            <h6 class="fw-bold border-bottom pb-2 mt-4 text-primary">Deskripsi Produk</h6>
+                            <p id="modalDesc" class="text-muted mt-3" style="line-height: 1.6; font-size: 1rem;">Deskripsi detail akan muncul di sini.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary px-4 fw-bold"><i class="bi bi-cart-plus me-2"></i>Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Login (Tema Primary/Biru) -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 420px;">
+            <div class="modal-content rounded-2 border-0 shadow-lg">
+                <!-- Garis atas indikator warna -->
+                <div style="height: 5px; background-color: #0d6efd; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+                
+                <div class="modal-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="mb-0 fw-bold">Log In</h4>
+                        
+                        <!-- Tooltip QR & Icon -->
+                        <div class="d-flex align-items-center cursor-pointer">
+                            <div class="qr-tooltip me-3 shadow-sm d-none d-sm-block">
+                                Log in dengan QR
+                            </div>
+                            <i class="bi bi-qr-code-scan text-theme fs-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Form Login -->
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control login-input" id="loginUsername" placeholder="No. Handphone/Username/Email">
+                            <div class="error-text" id="errorUsername"><i class="bi bi-exclamation-circle me-1"></i>Mohon isi di kolom berikut</div>
+                        </div>
+                        
+                        <div class="mb-3 position-relative">
+                            <input type="password" class="form-control login-input pe-5" id="loginPassword" placeholder="Password">
+                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 text-muted password-toggle-icon" id="toggleLoginPassword"></i>
+                            <div class="error-text" id="errorPassword"><i class="bi bi-exclamation-circle me-1"></i>Mohon isi di kolom berikut</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-theme w-100 fw-bold mb-3 py-2 fs-5">LOG IN</button>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="text-decoration-none" style="font-size: 0.85rem; color: #0d6efd;">Lupa Password</a>
+                            <a href="#" class="text-decoration-none" style="font-size: 0.85rem; color: #0d6efd;">Log in dengan SMS</a>
+                        </div>
+
+                        <!-- Divider ATAU -->
+                        <div class="d-flex align-items-center my-4 login-divider">
+                            <hr class="flex-grow-1">
+                            <span class="mx-3 text-muted" style="font-size: 0.8rem;">ATAU</span>
+                            <hr class="flex-grow-1">
+                        </div>
+
+                        <!-- Social Login Buttons -->
+                        <div class="row g-2 mb-4">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-outline-primary w-100 rounded-1 d-flex align-items-center justify-content-center py-2 border">
+                                    <i class="bi bi-facebook fs-5 me-2"></i> <span style="font-size: 0.9rem;">Facebook</span>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-outline-danger w-100 rounded-1 d-flex align-items-center justify-content-center py-2 border">
+                                    <i class="bi bi-google fs-5 me-2"></i> <span style="font-size: 0.9rem;">Google</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-3 pt-3 border-top" style="font-size: 0.9rem;">
+                            <span class="text-muted">Baru di Toko Makmur?</span> 
+                            <!-- Tombol ini menutup modal login dan membuka modal daftar -->
+                            <a href="#" class="text-theme text-decoration-none fw-bold" data-bs-target="#registerModal" data-bs-toggle="modal" data-bs-dismiss="modal">Daftar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Daftar (Register) -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 420px;">
+            <div class="modal-content rounded-2 border-0 shadow-lg">
+                <!-- Garis atas indikator warna -->
+                <div style="height: 5px; background-color: #0d6efd; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+                
+                <div class="modal-body p-4">
+                    <div class="text-center mb-4">
+                        <h4 class="mb-1 fw-bold">Daftar Akun</h4>
+                        <p class="text-muted small">Bergabunglah dan nikmati promo menarik!</p>
+                    </div>
+
+                    <!-- Form Daftar -->
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control login-input" id="regName" placeholder="Nama Lengkap">
+                            <div class="error-text" id="errorRegName"><i class="bi bi-exclamation-circle me-1"></i>Nama harus diisi</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="text" class="form-control login-input" id="regUsername" placeholder="No. Handphone / Email">
+                            <div class="error-text" id="errorRegUsername"><i class="bi bi-exclamation-circle me-1"></i>Kontak harus diisi</div>
+                        </div>
+                        
+                        <div class="mb-3 position-relative">
+                            <input type="password" class="form-control login-input pe-5" id="regPassword" placeholder="Password">
+                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 text-muted password-toggle-icon" id="toggleRegPassword"></i>
+                            <div class="error-text" id="errorRegPassword"><i class="bi bi-exclamation-circle me-1"></i>Password harus diisi</div>
+                        </div>
+
+                        <div class="mb-4 position-relative">
+                            <input type="password" class="form-control login-input pe-5" id="regConfirmPassword" placeholder="Konfirmasi Password">
+                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3 text-muted password-toggle-icon" id="toggleRegConfirmPassword"></i>
+                            <div class="error-text" id="errorRegConfirmPassword"><i class="bi bi-exclamation-circle me-1"></i>Password tidak cocok</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-theme w-100 fw-bold mb-3 py-2 fs-5">DAFTAR SEKARANG</button>
+
+                        <p class="text-center text-muted mb-4" style="font-size: 0.75rem; line-height: 1.4;">
+                            Dengan mendaftar, kamu menyetujui <a href="#" class="text-theme text-decoration-none">Syarat, Ketentuan<br>dan Kebijakan</a> & <a href="#" class="text-theme text-decoration-none">Kebijakan Privasi</a> kami.
+                        </p>
+
+                        <div class="text-center mt-3 pt-3 border-top" style="font-size: 0.9rem;">
+                            <span class="text-muted">Sudah punya akun?</span> 
+                            <!-- Tombol ini menutup modal daftar dan membuka modal login -->
+                            <a href="#" class="text-theme text-decoration-none fw-bold" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal">Log In</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Halaman -->
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5 shadow-lg">
+        <div class="container text-md-start">
+            <div class="row text-md-start">
+                <!-- Info Toko -->
+                <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+                    <h5 class="text-uppercase fw-bold text-primary mb-4">EK Printing</h5>
+                    <p class="text-secondary" style="font-size: 0.9rem;">
+                        Destinasi belanja elektronik terlengkap, aman, dan terpercaya. Kami menyediakan gadget terbaru dengan harga terbaik dan garansi resmi.
+                    </p>
+                </div>
+
+                <!-- Link Bantuan -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Layanan Pelanggan</h6>
+                    <p><a href="#" class="text-secondary text-decoration-none" style="font-size: 0.9rem;">Pusat Bantuan</a></p>
+                    <p><a href="#" class="text-secondary text-decoration-none" style="font-size: 0.9rem;">Metode Pembayaran</a></p>
+                    <p><a href="#" class="text-secondary text-decoration-none" style="font-size: 0.9rem;">Lacak Pesanan</a></p>
+                    <p><a href="#" class="text-secondary text-decoration-none" style="font-size: 0.9rem;">Pengembalian Barang</a></p>
+                </div>
+
+                <!-- Kontak -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-secondary" style="font-size: 0.9rem;">
+                    <h6 class="text-uppercase fw-bold text-white mb-4">Kontak Kami</h6>
+                    <p><i class="bi bi-house-door-fill me-2"></i> Jl. Teknologi No. 99, Jakarta</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> cs@tokomakmur.com</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> +62 812 3456 7890</p>
+                </div>
+            </div>
+
+            <hr class="mb-4 border-secondary">
+
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p class="text-secondary mb-0" style="font-size: 0.85rem;">© 2026 Hak Cipta Terpelihara: <strong class="text-white">EK Printing</strong></p>
+                </div>
+                <div class="col-md-5 col-lg-4 text-md-end mt-3 mt-md-0">
+                    <a href="#" class="btn btn-outline-secondary btn-sm border-0 rounded-circle me-2"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm border-0 rounded-circle me-2"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm border-0 rounded-circle me-2"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm border-0 rounded-circle"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (dibutuhkan untuk komponen interaktif seperti dropdown, modal, dll) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

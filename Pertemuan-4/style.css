@@ -1,0 +1,22 @@
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+.navbar {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.btn{
+    transition: width 2s, height 4s, background-color 3s;
+}
+.img-container {
+    border-radius: 10%;
+    margin-left: 100px;
+}
+
+@media screen and (max-width: 766px){
+    h1 {
+        font-size: 18px;
+    }
+}

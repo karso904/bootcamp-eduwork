@@ -1,0 +1,116 @@
+        /* CSS Kustom */
+        body {
+            background-color: #f8f9fa;
+        }
+        .product-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%; /* Membuat tinggi card seragam */
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            height: 200px;
+            object-fit: cover; /* Agar gambar tidak terdistorsi */
+            border-top-left-radius: calc(.25rem - 1px);
+            border-top-right-radius: calc(.25rem - 1px);
+        }
+        .product-description {
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Membatasi deskripsi hanya 3 baris */
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .price {
+            font-weight: bold;
+            color: #198754; /* Warna hijau success Bootstrap */
+            font-size: 1.2rem;
+        }
+        .category-badge {
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Tema Utama Baru (Primary Blue) */
+        .text-theme { color: #0d6efd; }
+        .bg-theme { background-color: #0d6efd; }
+        .btn-theme { 
+            background-color: #0d6efd; 
+            color: white; 
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .btn-theme:hover { 
+            background-color: #0b5ed7; 
+            color: white; 
+        }
+        .login-input {
+            border-radius: 4px;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid #ced4da;
+        }
+        .login-input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+        
+        /* Efek Balon Tooltip QR (Disesuaikan dengan tema biru) */
+        .qr-tooltip {
+            position: relative;
+            background: #f8faff;
+            border: 1px solid #0d6efd;
+            color: #0d6efd;
+            padding: 8px 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 4px;
+        }
+        .qr-tooltip::after, .qr-tooltip::before {
+            left: 100%;
+            top: 50%;
+            border: solid transparent;
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        .qr-tooltip::after {
+            border-color: rgba(13, 110, 253, 0);
+            border-left-color: #0d6efd;
+            border-width: 6px;
+            margin-top: -6px;
+        }
+        .qr-tooltip::before {
+            border-color: rgba(248, 250, 255, 0);
+            border-left-color: #f8faff;
+            border-width: 5px;
+            margin-top: -5px;
+            z-index: 1;
+        }
+        
+        /* Garis Pemisah "ATAU" */
+        .login-divider hr {
+            border-top: 1px solid #dbdbdb;
+            opacity: 1;
+        }
+        
+        /* Styling untuk Error Text (saat input kosong) */
+        .error-text {
+            color: #dc3545; /* Merah bahaya standar Bootstrap */
+            font-size: 0.75rem;
+            margin-top: 4px;
+            display: none; /* Disembunyikan secara default */
+        }
+        .input-error {
+            border-color: #dc3545 !important;
+            background-color: #fff8f8;
+        }
+        
+        /* Kursor penunjuk untuk ikon mata password */
+        .password-toggle-icon {
+            cursor: pointer;
+        }
