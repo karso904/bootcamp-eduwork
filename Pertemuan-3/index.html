@@ -5,18 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout Produk Tanpa JS Custom</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        .produk-card {
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .produk-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-            border-color: #0d6efd;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
 
@@ -26,55 +15,55 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             
             <div class="col">
-                <div class="card h-100 produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk1">
+                <div class="card  produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk1">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Produk 1</h5>
-                        <p class="card-text text-muted">Deskripsi singkat produk 1...</p>
+                        <h5 class="card-title"><strong>Nasi Goreng Spesial</strong></h5>
+                        <p class="card-text text-muted">Deskripsi Nasi goreng khas Indonesia dengan bumbu rempah dan berbagai jenis daging seperti ayam, sapi, atau ikan. Dijamin lezat dan menggugah selera.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk2">
+                <div class="card  produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk2">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Produk 2</h5>
-                        <p class="card-text text-muted">Deskripsi singkat produk 2...</p>
+                        <h5 class="card-title"><strong>Pizza ala Italia</strong></h5>
+                        <p class="card-text text-muted">Deskripsi Pizza tradisional dari Italia dengan adonan tepung tahan dan saset topping lezat seperti mozzarella, ham, dan tomato sauce. Cocok untuk dinikmati bersama keluarga atau teman.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk3">
+                <div class="card  produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk3">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Produk 3</h5>
-                        <p class="card-text text-muted">Deskripsi singkat produk 3...</p>
+                        <h5 class="card-title"><strong>Sate Ayam Bakar</strong></h5>
+                        <p class="card-text text-muted">Deskripsi Sate ayam yang dipanggang dengan api arang bakar, dilengkapi dengan bumbu khas Indonesia seperti kencur, bawang putih, dan gula merah. Nikmati rasa manis dan gurih dari sate ini.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk4">
+                <div class="card  produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk4">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Produk 4</h5>
-                        <p class="card-text text-muted">Deskripsi singkat produk 4...</p>
+                        <h5 class="card-title"><strong>Burger Steak</strong></h5>
+                        <p class="card-text text-muted">Deskripsi Burger dengan patty steak yang empuk dan berdaging, disajikan dengan roti tahan dan berbagai jenis bahan seperti keju, lettuce, dan saus. Cocok untuk dinikmati di siang hari atau malam hari.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk5">
+                <div class="card  produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk5">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Produk 5</h5>
-                        <p class="card-text text-muted">Deskripsi singkat produk 5...</p>
+                        <h5 class="card-title"><strong>Soto Ayam </strong></h5>
+                        <p class="card-text text-muted">Deskripsi Sup khas Indonesia yang dibuat dengan ayam rebus, santan beras, dan berbagai bumbu seperti bawang merah, jahe, dan daun bawang. Cocok untuk dinikmati sebagai hidangan utama atau cemilan.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk6">
+                <div class="card  produk-card" data-bs-toggle="modal" data-bs-target="#modalProduk6">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Produk 6</h5>
-                        <p class="card-text text-muted">Deskripsi singkat produk 6...</p>
+                        <h5 class="card-title"><strong>Es Teler</strong></h5>
+                        <p class="card-text text-muted">Deskripsi Es krim khas Indonesia dengan campuran es putar, kacang tanah, kolang-kolang kacang, dan gula merah. Nikmati sensasi dingin dan manis dari es teler ini.</p>
                     </div>
                 </div>
             </div>
@@ -90,8 +79,8 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h4 class="mb-3">Nama Produk 1</h4>
-                    <p>Ini adalah deskripsi lengkap untuk Produk 1. Anda bisa menaruh detail spesifikasi atau informasi lainnya di sini.</p>
+                    <h4 class="mb-3"><strong>Nasi Goreng Spesial</strong></h4>
+                        <p>Deskripsi Nasi goreng khas Indonesia dengan bumbu rempah dan berbagai jenis daging seperti ayam, sapi, atau ikan. Dijamin lezat dan menggugah selera.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -109,8 +98,8 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h4 class="mb-3">Nama Produk 2</h4>
-                    <p>Ini adalah deskripsi lengkap untuk Produk 2. Menjelaskan keunggulan dan fiturnya.</p>
+                    <h4 class="mb-3"><strong>Pizza ala Italia</strong></h4>
+                    <p>Deskripsi Pizza tradisional dari Italia dengan adonan tepung tahan dan saset topping lezat seperti mozzarella, ham, dan tomato sauce. Cocok untuk dinikmati bersama keluarga atau teman.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -128,8 +117,8 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h4 class="mb-3">Nama Produk 3</h4>
-                    <p>Ini adalah deskripsi lengkap untuk Produk 3. Produk ini sangat direkomendasikan.</p>
+                    <h4 class="mb-3"><strong>Sate Ayam Bakar</strong></h4>
+                    <p>Deskripsi Sate ayam yang dipanggang dengan api arang bakar, dilengkapi dengan bumbu khas Indonesia seperti kencur, bawang putih, dan gula merah. Nikmati rasa manis dan gurih dari sate ini.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -147,8 +136,8 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h4 class="mb-3">Nama Produk 4</h4>
-                    <p>Ini adalah deskripsi lengkap untuk Produk 4. Dibuat dengan bahan berkualitas.</p>
+                    <h4 class="mb-3"><strong>Burger Steak</strong></h4>
+                    <p>Deskripsi Burger dengan patty steak yang empuk dan berdaging, disajikan dengan roti tahan dan berbagai jenis bahan seperti keju, lettuce, dan saus. Cocok untuk dinikmati di siang hari atau malam hari.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -166,8 +155,8 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h4 class="mb-3">Nama Produk 5</h4>
-                    <p>Ini adalah deskripsi lengkap untuk Produk 5. Cocok untuk kebutuhan sehari-hari.</p>
+                    <h5 class="mb-3"><strong>Soto Ayam </strong></h5>
+                    <p>Deskripsi Sup khas Indonesia yang dibuat dengan ayam rebus, santan beras, dan berbagai bumbu seperti bawang merah, jahe, dan daun bawang. Cocok untuk dinikmati sebagai hidangan utama atau cemilan.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -185,8 +174,8 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h4 class="mb-3">Nama Produk 6</h4>
-                    <p>Ini adalah deskripsi lengkap untuk Produk 6. Edisi terbatas dan spesial.</p>
+                    <h4 class="mb-3"><strong>Es Teler</strong></h4>
+                    <p> Es krim khas Indonesia dengan campuran es putar, kacang tanah, kolang-kolang kacang, dan gula merah. Nikmati sensasi dingin dan manis dari es teler ini.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
