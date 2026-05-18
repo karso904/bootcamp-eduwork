@@ -43,7 +43,7 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `nama_produk` varchar(100) NOT NULL,
+  `nama_products` varchar(100) NOT NULL,
   `harga` float NOT NULL,
   `deskripsi` text,
   `stok` int(11) DEFAULT NULL
@@ -53,7 +53,7 @@ CREATE TABLE `products` (
 -- Dumping data untuk tabel `products`
 --
 
-INSERT INTO `products` (`id`, `nama_produk`, `harga`, `deskripsi`, `stok`) VALUES
+INSERT INTO `products` (`id`, `nama_products`, `harga`, `deskripsi`, `stok`) VALUES
 (1, 'Kemeja Hitam', 300000, 'Kualitas Premium bahan Adem', 200),
 (2, 'Celana Cardinal', 400000, 'Kualitas Premium Enak dipakai', 25),
 (3, 'Gamis Couple', 350000, 'Bahan Adem Murah Meriah', 20),
@@ -168,7 +168,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (11, 'Cucu', 'cucu@gmail.com', 'Cu12345@'),
 (12, 'Nono', 'nono@gmail.com', 'No12345@');
 
-INSERT INTO `products` (`id`, `nama_produk`, `harga`, `deskripsi`, `stok`) VALUES
+INSERT INTO `products` (`id`, `nama_products`, `harga`, `deskripsi`, `stok`) VALUES
 (1, 'Kemeja Hitam', 300000, 'Kualitas Premium bahan Adem', 200),
 (2, 'Celana Cardinal', 400000, 'Kualitas Premium Enak dipakai', 25),
 (3, 'Gamis Couple', 350000, 'Bahan Adem Murah Meriah', 20),
@@ -184,5 +184,5 @@ SELECT * FROM users;
 SELECT * FROM products;
 SELECT * FROM orders;
 
-UPDATE products SET nama_produk = 'Kemeja Wanita' WHERE id ='2';
+UPDATE products SET nama_products = 'Kemeja Wanita' WHERE id ='2';
 DELETE FROM orders WHERE id ='2'

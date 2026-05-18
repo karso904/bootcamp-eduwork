@@ -25,7 +25,7 @@
                                 <label for="nama" class="form-label">Nama Produk</label>
                                 <input type="text" class="form-control" id="nama" name="nama" required minlength="3">
                                 <min-lenght></min-lenght>
-                                <div class="invalid-feedback">Nama produk wajib diisi dan Minimal 3 Huruf.</div>
+                                <div class="invalid-feedback">Nama products wajib diisi dan Minimal 3 Huruf.</div>
                             </div>
 
                             <div class="mb-3">
@@ -44,7 +44,7 @@
                                 <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*"
                                     required>
                                 <div class="form-text">Format: JPG, JPEG, PNG (Maks. 2MB)</div>
-                                <div class="invalid-feedback">Silakan unggah gambar produk.</div>
+                                <div class="invalid-feedback">Silakan unggah gambar products.</div>
                             </div>
 
                             <div class="mb-3">
